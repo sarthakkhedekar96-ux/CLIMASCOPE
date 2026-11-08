@@ -1,0 +1,72 @@
+﻿# Secrets and environment variables
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Node dependencies and builds
+node_modules/
+dist/
+frontend/dist/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Browser automation profiles
+chrome_temp_profile/
+edge_temp_profile/
+
+# Temporary files and logs
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Python testing and cache
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+# Local environment
+.local/
+
+# Root-level debugging and browser-capture artifacts
+/capture_*.py
+/cdp_probe.py
+/debug_layout.html
+/measure*.html
+/probe*.html
+/run_layout_probe.py
+/run_metrics_probe.py
+/run_qrf_test.py
+/test_*.py
+/test_*.html
+/test_*.png
+
+# Database backups
+*.bak
+*.backup
+
+# Local database files
+*.db-journal
+
+# Temporary layout and diagnostic scripts
+/measure_and_capture_1824x824.py
+/probe_prompt24.py
