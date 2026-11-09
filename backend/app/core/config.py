@@ -23,9 +23,11 @@ class Settings:
     # Support PostgreSQL production connections and deterministic SQLite development paths
     _raw_db_url = os.getenv("DATABASE_URL")
     if _raw_db_url:
-        # Normalize legacy postgres:// to postgresql:// for SQLAlchemy 2.0+
+        # Normalize Render/Heroku postgres:// or postgresql:// to explicit psycopg2 driver
         if _raw_db_url.startswith("postgres://"):
-            _raw_db_url = _raw_db_url.replace("postgres://", "postgresql://", 1)
+            _raw_db_url = _raw_db_url.replace("postgres://", "postgresql+psycopg2://", 1)
+        elif _raw_db_url.startswith("postgresql://"):
+            _raw_db_url = _raw_db_url.replace("postgresql://", "postgresql+psycopg2://", 1)
         DATABASE_URL: str = _raw_db_url
     else:
         # Deterministically resolve absolute path for default SQLite database
